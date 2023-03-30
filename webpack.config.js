@@ -50,29 +50,12 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: path.join(__dirname, 'public', 'index.html')
     }),
-    new ModuleFederationPlugin({
-        name: 'remote',
-        filename: "app.js",
-        exposes: {
-            './Loading': './src/app.js'
-        },
-        // shared: {
-        //     ...dependencies,
-        //     react: {
-        //         eager: true,
-        //       },
-        //   }
-        // , shared: {
-        //     ...dependencies,
-        //     // react: {
-        //     //   singleton: true,
-        //     //   requiredVersion: dependencies["react"],
-        //     // },
-        //     // "react-dom": {
-        //     //   singleton: true,
-        //     //   requiredVersion: dependencies["react-dom"],
-        //     // },
-        //   },
-    }),
+    // new ModuleFederationPlugin({
+    //     name: 'remote',
+    //     filename: "app.js",
+    //     exposes: {
+    //         './Loading': './src/app.js'
+    //     }
+    // }),
   ]
 };
