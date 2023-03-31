@@ -10,12 +10,6 @@ module.exports = {
     path: path.resolve(__dirname, './dist'),
     filename: "[name].js",
   },
-//   output: {
-//     path: path.resolve(__dirname, 'dist'),
-//     filename: '[name].[hash:8].js',
-//     sourceMapFilename: '[name].[hash:8].map',
-//     chunkFilename: '[id].[hash:8].js'
-//   },
   target: 'web',
   devServer: {
     port: '8080',
@@ -29,9 +23,6 @@ module.exports = {
   resolve: {
     extensions: ['.js', '.jsx', '.json'],
   },
-//   exposes: {
-//     './Loading': './src/app.js'
-//   },
   module: {
     rules: [
       {
@@ -50,12 +41,12 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: path.join(__dirname, 'public', 'index.html')
     }),
-    // new ModuleFederationPlugin({
-    //     name: 'remote',
-    //     filename: "app.js",
-    //     exposes: {
-    //         './Loading': './src/app.js'
-    //     }
-    // }),
+    new ModuleFederationPlugin({
+        name: 'remote',
+        filename: "app.js",
+        exposes: {
+            './Loading': './src/app.js'
+        }
+    }),
   ]
 };
